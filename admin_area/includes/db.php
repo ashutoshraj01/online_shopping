@@ -1,5 +1,5 @@
 
 
 <?php
-$con=mysqli_connect("localhost","root","","ecom"); /* establishing a database connection  */
+$con=mysqli_connect("localhost","root","","ecom") or die('connection error'); /* establishing a database connection  */
 ?>
