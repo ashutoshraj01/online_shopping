@@ -21,7 +21,7 @@ while ($row_cats=mysqli_fetch_array($run_cats))
   $cat_id=$row_cats['cat_id'];
   $cat_title=$row_cats['cat_title'];
 
-echo "<li> <a href='#'>$cat_title</a></li>";
+echo "<li> <a href='#'>$cat_title</a>ok</li>";
 
 }
 
@@ -63,19 +63,19 @@ function getpro(){
 
 	global $con;
 
-  $get_pro="select * from products order by rand() LIMIT 0,6";
+  $get_pro="select * from products";
 
   $run_pro=mysqli_query($con,$get_pro);
 
   while($row_pro=mysqli_fetch_array($run_pro))
   {
 
-     $pro_id=$row_pro['product_id'];	
-     $pro_cat=$row_pro['product_cat'];
+     //$pro_id=$row_pro['product_id'];	
+     //$pro_cat=$row_pro['product_cat'];
      $pro_brand=$row_pro['product_brand'];
      $pro_title=$row_pro['product_title'];
      $pro_price=$row_pro['product_price'];
-     $pro_image=$row_pro['product_image'];
+     $pro_image=$row_pro[5];
      
      echo "
      
