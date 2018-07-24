@@ -10,25 +10,25 @@ include("functions/functions.php");
 <head>
 <title>ONLINE SHOPPING...!</title>
 
-<link rel="stylesheet" href ="styles/style.css" media="all" />
+	<link rel="stylesheet" href ="styles/style.css" media="all" />
 
 </head>
 <body>
      <!-- MAIN CONTAINER STARTS FROM HERE--> 
-	 <div class="main">
+    <div class="main">
     
-      <!-- HEADER STARTS HERE -->    
-        <div class="header">
+        <!-- HEADER STARTS HERE -->    
+         <div class="header">
             
-            <img id="logo_image" src="images/logo"/>
-            <img id="logo_image" src="images/logo1" style="width: 50%" /> 
+              <img id="logo_image" src="images/logo"/>
+              <img id="logo_image" src="images/logo1" style="width: 60%" /> 
 
 
-        </div>  
+         </div>  
         <!-- HEADER ENDS HERE -->
         
        <!-- NAVIGATION BAR STARTS HERE --> 
-       <div class="menubar">
+        <div class="menubar">
             <ul id="menu">
                 <li><a href="#">HOME</a></li>
                 <li><a href="#">ALL PRODUCTS</a></li>
@@ -38,12 +38,12 @@ include("functions/functions.php");
                 <li><a href="#">CONTACT US</a></li>
            </ul>
 
-        <div id="form">
-            <form method="get" action="result.php" enctype="multipart/form-data">
-                <input type="text" name="user_query" placeholder="Feel Free To Search" />
-                <input  type="submit" name="Search" value="Search" />
-            </form>
-        </div>
+                <div id="form">
+		            <form method="get" action="result.php" enctype="multipart/form-data">
+		                <input type="text" name="user_query" placeholder="Feel Free To Search" />
+		                <input  type="submit" name="Search" value="Search" />
+		            </form>
+                </div>
 
 
        </div>
@@ -52,57 +52,48 @@ include("functions/functions.php");
      		
      
      <!-- CONTENTS SECTION START HERE -->
-     <div class="content">
+              <div class="content">
           
-          <div id="sidebar">
-               <div id="sidebar_title">Categories</div>
-                
-                  <ul id="cats">
-                     
-                     <?php  getCats();  ?>
+			            <div id="sidebar">
+			                <div id="sidebar_title">Categories</div>
+			                 
+			                    <ul id="cats">
+			                             <?php  getCats();  ?>
+			                     </ul>
 
-                  </ul>
-
-                 <div id="sidebar_title">Brands</div>
-                  <ul id="cats">
-                     <?php  getBrands();  ?>
-
-                  </ul>
+			                <div id="sidebar_title">Brands</div>
+			                      <ul id="cats">
+			                             <?php  getBrands();  ?>
+			                      </ul> 
+			                </div>
 
 
-          </div>
+
 
           <div id="content_area">
               
-            <div id="products_box">
-                 <?php
-
-                 getpro();
-           
-            ?>
-            </div>
-
-
-
-
+			              <div id="products_box">
+			                  <?php
+			                       getpro();
+			                  ?>
+			              </div>
           </div>
+
+
      
-     </div>
+    </div>
      <!-- CONTENTS SECTION ENDS HERE -->
 
         
 
          <div id="footer">
-             
-          <h2 style="text-align: center;padding-top: 10px ">&copy By ASHUTOSH RAJ</h2>
-
-
+                          <h2 style="text-align: center;padding-top: 10px ">&copy By ASHUTOSH RAJ</h2>
          </div>
 
 
 
 
-   </div>
+</div>
 <!-- MAIN CONTAINER ENDS HERE-->
 
 

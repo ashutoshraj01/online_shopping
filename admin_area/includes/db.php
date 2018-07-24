@@ -1,4 +1,6 @@
 <?php
-$con=mysqli_connect("localhost","root","","ecom") or die('connection error');
- /* establishing a database connection  */
+         /* establishing a database connection  */
+
+$con=mysqli_connect("localhost","root","","ecom") or die('Error ocurred while establishing database connection');
+
 ?>
