@@ -150,6 +150,8 @@
        
    //$product_id = 1;
    $query = "insert into products values ('$product_cat','$product_brand','$product_title','$product_price','$product_desc','$product_image','$product_keywords')";
+
+   /*
    echo "products title = ".$product_title;
    echo "act = ".$product_cat;
    echo "brand = ".$product_brand;
@@ -157,7 +159,7 @@
    echo "desc = ".$product_desc;
    echo "keywords = ".$product_keywords;
    echo "image name ".$product_image;
-
+*/
 
 
   mysqli_query($con,$query) or die ("can not work!"); 

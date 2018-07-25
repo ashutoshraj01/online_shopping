@@ -33,7 +33,12 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
-body{background:white;}
+
+
+
+
+ body{background:white;}
+
 
 .main{
       width:1000px;
@@ -60,64 +65,66 @@ body{background:white;}
           height: 50px;
           background:grey;
           }
-         
-#menu{   /* menu id */
-        padding: 0;
-        margin: 0;
-        line-height: 35px; 
-       float: left;  
+          
+    #menu{  /* menu id */
+         padding: 0;
+         margin: 0;
+         line-height: 35px; 
+         float: left;  
+        }
+
+    #menu li{    /* sub id of menu id*/
+          list-style: none;  /*removes the bullet*/
+          display: inline;   /*display in a single line*/
+          }
+
+    #menu a /*sub id of menu id */
+         {
+          text-decoration: none; /*removing underlines*/
+          color: white;
+          padding: 8px;
+          margin: 5px;
+         font-size: 15px;
+         line-height: 50px; /*used for placing text at particular height */
+         font-family: COMIC SANS MS;
+       }
+
+    #menu a:hover
+          {   /* when someone points the cursor */
+           color: red;
+           font-weight: bolder;
+           text-decoration: underline; /* adding underline*/
+          }
+
+    #form
+        {
+          float: right;
+          padding-right: 8px;
+          line-height: 40px;
+        }
+
+.content
+      {
+       width: 1000px;
+       margin: auto;
+       background: pink;
       }
- #menu li{    /* sub id of menu id*/
-  list-style: none;  /*removes the bullet*/
-  display: inline;   /*display in a single line*/
-   }
 
-#menu a /*sub id of menu id */
-{
-
-   text-decoration: none; /*removing underlines*/
-   color: white;
-   padding: 8px;
-   margin: 5px;
-   font-size: 15px;
-   line-height: 50px; /*used for placing text at particular height */
-   font-family: COMIC SANS MS;
-
-}
-
-#menu a:hover{   /* when someone points the cursor */
-  color: red;
-  font-weight: bolder;
-  text-decoration: underline; /* adding underline*/
-
-}
-
-#form{
-   float: right;
-   padding-right: 8px;
-   line-height: 40px;
-
-}
-
-
-.content{
-         width: 1000px;
-         margin: auto;
-         background: pink;
-}
-
-   #content_area{
+    #content_area
+               {
    	           width:800px;
-                 margin: auto; 
-                 background:pink;
-                 }
+               margin: auto; 
+               background:pink;
+              }
 
-   #sidebar{
+    #sidebar{
            width: 200px;
            background:black;
            float: left;
           }
-#sidebar_title{
+
+    #sidebar_title
+               {
                background: white;
                color: black;
                font-size: 22px;
@@ -126,55 +133,55 @@ body{background:white;}
                /*text-align: center;*/
               }  
                      
-#cats{
-   text-align: center;
-   padding: 5px;
-}
+     #cats
+         {
+          text-align: center;
+          padding: 5px;
+         }
 
-#cats li{
+     #cats li
+           {
+            list-style: none;
+            margin: 5px;
+           }
 
-   list-style: none;
-   margin: 5px;
-   
-}
+     #cats a
+          {
+           text-decoration:none;
+           color: white;
+           padding: 8px;
+           margin: 5px;
+          font-size: 22px;
+          font-family:COMIC SANS MS 
+         }
 
-#cats a{
-   text-decoration:none;
-   color: white;
-   padding: 8px;
-   margin: 5px;
-   font-size: 22px;
-   font-family:COMIC SANS MS 
-   
-}
+    #cats a:hover
+          {
+           color: red;
+           font-weight: bold;
+           text-decoration: underline;
+          }
 
-#cats a:hover{
-   color: red;
-   font-weight: bold;
-   text-decoration: underline;
-}
+    #products_box
+          {
+           width: 780px;
+           text-align: center;
+           margin-left: 30px;
+           margin-bottom: 10px;
+          }
 
-#products_box{
-   width: 780px;
-   text-align: center;
-   margin-left: 30px;
-   margin-bottom: 10px;
-}
-
-  #single_product{
-      float: left;
-      margin-left: 20px;
-      padding: 10px;
-    }
-
-
-
-
-
-#footer{
-        width: 1000px;
-        height: 50px;
-        clear: both;
-        background: grey;
-        margin: auto;
-       }
+   #single_product
+          {
+            float: left;
+            margin-left: 20px;
+            padding: 10px;
+          }
+          
+    #footer
+        {
+         width: 1000px;
+         height: 50px;
+         clear: both;
+         background: grey;
+         margin: auto;
+       }0
