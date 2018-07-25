@@ -17,7 +17,7 @@
 </head>
 <body bgcolor="skyblue">
 
-   <form action="insert_product.php" method="post" enctype="multipart/form-data"> <!-- entype= multitype means we will receive data in multiple formats like images or may be videos -->
+   <form action="index.php" method="post" enctype="multipart/form-data"> <!-- entype= multitype means we will receive data in multiple formats like images or may be videos -->
    
    <table align="center" width="750" border="10" bgcolor="yellow">
 
