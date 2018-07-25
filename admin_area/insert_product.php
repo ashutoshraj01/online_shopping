@@ -141,7 +141,10 @@
             $product_price=$_POST['product_price'];
               $product_desc=$_POST['product_desc'];
                  $product_keywords=$_POST['product_keywords'];
-   
+            
+     
+
+
    	// getting image from feilds
     $product_image=$_FILES['product_image']['name'];
     $product_image_tmp=$_FILES['product_image']['tmp_name'];
@@ -150,14 +153,16 @@
        
    //$product_id = 1;
    $query = "insert into products  values ('$product_cat','$product_brand','$product_title','$product_price','$product_desc','$product_image','$product_keywords','')";
-   echo "products title = ".$product_title;
+
+
+   /*echo "products title = ".$product_title;
    echo "act = ".$product_cat;
    echo "brand = ".$product_brand;
    echo "price = ".$product_price;
    echo "desc = ".$product_desc;
    echo "keywords = ".$product_keywords;
    echo "image name ".$product_image;
-
+   */
 
 
   mysqli_query($con,$query) or die ("can not work!"); 
