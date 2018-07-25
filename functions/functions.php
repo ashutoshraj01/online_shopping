@@ -1,4 +1,9 @@
 
+
+
+
+
+
 <!-- functions used for database connection -->
 
 
@@ -70,8 +75,8 @@ function getBrands()
                                                  while($row_pro=mysqli_fetch_array($run_pro))
                                                       {
 
-                                                       //$pro_id=$row_pro['product_id'];	
-                                                       //$pro_cat=$row_pro['product_cat'];
+                                                       $pro_id=$row_pro['product_id'];	
+                                                       $pro_cat=$row_pro['product_cat'];
                                                        $pro_brand=$row_pro['product_brand'];
                                                        $pro_title=$row_pro['product_title'];
                                                        $pro_price=$row_pro['product_price'];
