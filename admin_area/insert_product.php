@@ -1,6 +1,6 @@
 <!DOCTYPE>
 <?php
-      include("./includes/db.php");
+      include("includes/db.php");
 ?>
 <html>
 <head>
@@ -39,8 +39,7 @@
         <select name="product_cat">
         	  <option>Select a Category</option>
                <?php
-                
-
+                 global $con;
                  $get_cats = "select * from categories ";  /* writing a query */
 
 			    $run_cats=mysqli_query($con,$get_cats);   /* running the query */
@@ -66,7 +65,7 @@
          <select name="product_brand">
          	<option>Select a Brand</option>
           <?php
-          
+            global $con;
            $get_brands = "select * from brands";  /* writing a query */
 
 		$run_brands=mysqli_query($con,$get_brands);  
@@ -134,6 +133,10 @@
  if(isset($_POST['insert_post']))
    {
              
+         global $con;
+
+//$con=mysqli_connect("localhost","root","","ecom") or die('Error ocurred while establishing database connection');
+
    	// getting text data from feilds
       $product_title=$_POST['product_title'];
         $product_cat=$_POST['product_cat'];
@@ -143,41 +146,24 @@
                  $product_keywords=$_POST['product_keywords'];
    
    	// getting image from feilds
-    $product_image=$_FILES['product_image']['name'];
-    $product_image_tmp=$_FILES['product_image']['tmp_name'];
+    $product_image = $_FILES['product_image']['name'];
+    $product_image_tmp = $_FILES['product_image']['tmp_name'];
      
     move_uploaded_file($product_image_tmp, "product_images/$product_image");   
        
-   //$product_id = 1;
-   $query = "insert into products values ('$product_cat','$product_brand','$product_title','$product_price','$product_desc','$product_image','$product_keywords')";
+   
+   $query = "insert into products values 
+    ($product_cat','$product_brand','$product_title','$product_price','$product_desc','$product_image','$product_keywords')";
+  
 
-   /*
-   echo "products title = ".$product_title;
-   echo "act = ".$product_cat;
-   echo "brand = ".$product_brand;
-   echo "price = ".$product_price;
-   echo "desc = ".$product_desc;
-   echo "keywords = ".$product_keywords;
-   echo "image name ".$product_image;
-*/
+   mysqli_query($con,$query) or die ("can't work!"); 
 
-
-  mysqli_query($con,$query) or die ("can not work!"); 
 
   echo "<script>alert('Product has been inserted')</script>";
   echo "<script> window.open('insert_product.php','self')</script>";
 
    }
 
-
-
-
-
 ?>
-
-
-
-
-
 
 
