@@ -176,6 +176,11 @@ footer, header, hgroup, menu, nav, section {
             margin-left: 20px;
             padding: 10px;
           }
+
+     /*#single_product img
+           {
+            border:2px solid black;
+          }*/     
           
     #footer
         {

@@ -3,11 +3,12 @@
 
 
 
-
 <!-- functions used for database connection -->
 
 
 <?php
+
+
 
     $con=mysqli_connect("localhost","root","","ecom");
 
@@ -65,6 +66,7 @@ function getBrands()
 
                        function getpro()
                                     {
+                                       echo '<link rel="stylesheet" href ="styles/style.css" media="all" />';
 
                                     	global $con;
 
@@ -87,9 +89,11 @@ function getBrands()
                                                           <div id='single_product'>
                                                                      <h3>$pro_title</h3>
                                                    
-                                                                    <img src='admin_area/product_images/$pro_image' width='180' height='180' />
+                                                                    <img src='admin/product_images/$pro_image' width='180' height='180' />
 
                                                                     <p> &#8377 <b>$pro_price</b></p> 
+                                                                    <a href='detail.php' style='float:left'>Details</a>
+                                                                    <a href='index.php'><button style='float:right'>Add to cart</button></a>
 
                                                             </div>
                                                          ";
