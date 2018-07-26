@@ -85,15 +85,32 @@ include("functions/functions.php");
              </div> 
              
 			              <div id="products_box">
-			                  <?php
-			                    
-			                     echo '<link rel="stylesheet" href ="styles/style.css" media="all" />';
-
+			                <?php
+			                     if(isset($_GET['search']))
+			                     {
+			                     	$search_query=$_GET['user_query'];
+			                        
+			                        echo '<link rel="stylesheet" href ="styles/style.css" media="all" />';
+                                             
                                     	global $con;
 
-                                      $get_pro="select * from products";
+                                      $get_pro="select * from products where product_keywords like '%$search_query%'  ";
 
                                       $run_pro=mysqli_query($con,$get_pro);
+
+                                                 $count_keywords=mysqli_num_rows($run_pro);
+                                                    if($count_keywords==0)
+                                                     {
+
+
+                                                          echo "<script>alert('SORRY ! No Product available for your Search')</script>";
+                                                          echo "<script>   window.location.href ='index.php'</script>";
+                                                        
+                                                     }
+
+                                                     else
+                                                    { 	
+
 
                                                  while($row_pro=mysqli_fetch_array($run_pro))
                                                       {
@@ -121,7 +138,8 @@ include("functions/functions.php");
                                                          ";
 
                                                     }            
-                           
+                                      }
+                                 }     
 			                  ?>
 			              </div>
           </div>
@@ -151,6 +169,9 @@ include("functions/functions.php");
 
 </body>
 </html>
+
+
+
 
 
 
