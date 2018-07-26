@@ -177,11 +177,22 @@ footer, header, hgroup, menu, nav, section {
             padding: 10px;
           }
 
-     /*#single_product img
+     #single_product img
            {
-            border:2px solid black;
-          }*/     
-          
+            border:1px solid black;
+          }     
+    #shopping_cart
+          {
+            width: 900px;
+            height: 50px;
+            background:black;
+            color: white;
+
+
+          }       
+   
+
+
     #footer
         {
          width: 1000px;

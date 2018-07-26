@@ -65,7 +65,9 @@ function getBrands()
 
 
                        function getpro()
-                                    {
+                                    {     
+
+
                                        echo '<link rel="stylesheet" href ="styles/style.css" media="all" />';
 
                                     	global $con;
@@ -92,8 +94,9 @@ function getBrands()
                                                                     <img src='admin/product_images/$pro_image' width='180' height='180' />
 
                                                                     <p> &#8377 <b>$pro_price</b></p> 
-                                                                    <a href='detail.php' style='float:left'>Details</a>
-                                                                    <a href='index.php'><button style='float:right'>Add to cart</button></a>
+
+                                                                    <a href='details.php?pro_id=$pro_id' style='float:left'>Details</a>
+                                                                    <a href='index.php?pro_id=$pro_id'><button style='float:right'>Add to cart</button></a>
 
                                                             </div>
                                                          ";
