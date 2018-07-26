@@ -27,7 +27,7 @@
                               $cat_id=$row_cats['cat_id'];
                               $cat_title=$row_cats['cat_title'];
 
-                              echo "<li> <a href='#'>$cat_title</a>ok</li>";
+                              echo "<li> <a href='index.php?cat=$cat_id'>$cat_title</a></li>";
 
                            }
 
@@ -56,7 +56,7 @@ function getBrands()
                               $brand_id=$row_brands['brand_id'] ;
                               $brand_title=$row_brands['brand_title'];
 
-                              echo "<li> <a href='#'>$brand_title</a></li>";  /* for displaying   */
+                              echo "<li> <a href='index.php?brand=$brand_id'>$brand_title</a></li>";  /* for displaying   */
 
                            }
                 }
@@ -66,7 +66,10 @@ function getBrands()
 
                        function getpro()
                                     {     
-
+                                         if(!isset($_GET['cat']))
+                                         {
+                                             if(!isset($_GET['brand']))
+                                             {
 
                                        echo '<link rel="stylesheet" href ="styles/style.css" media="all" />';
 
@@ -102,10 +105,150 @@ function getBrands()
                                                          ";
 
                                                     }
-
-
-
+                                  }
+                                      
+                                    }
                                       }
+
+
+
+                                function getcatpro()
+                                    {     
+                                         if(isset($_GET['cat']))
+                                         {
+                                          
+                                            $cat_id=$_GET['cat'];    
+
+                                       echo '<link rel="stylesheet" href ="styles/style.css" media="all" />';
+
+                                      global $con;
+
+                                      $get_cat_pro="select * from products where product_cat='$cat_id'";
+
+                                      $run_cat_pro=mysqli_query($con,$get_cat_pro);
+
+                                      $count_cats=mysqli_num_rows($run_cat_pro);
+                                                     if($count_cats==0)
+                                                     {
+
+                                                         echo "<h2>Sorry !</h2><h3> No Products available for this category</h3>";
+                                                         exit();
+                                                     }
+                                                  else
+                                                  {
+                                                       
+                                                    while($row_cat_pro=mysqli_fetch_array($run_cat_pro))
+                                                      {
+
+                                                       $pro_id=$row_cat_pro['product_id'];  
+                                                       $pro_cat=$row_cat_pro['product_cat'];
+                                                       $pro_brand=$row_cat_pro['product_brand'];
+                                                       $pro_title=$row_cat_pro['product_title'];
+                                                       $pro_price=$row_cat_pro['product_price'];
+                                                       $pro_image=$row_cat_pro[5];
+                                                       
+                                                       echo "
+                                                       
+                                                          <div id='single_product'>
+                                                                     <h3>$pro_title</h3>
+                                                   
+                                                                    <img src='admin/product_images/$pro_image' width='180' height='180' />
+
+                                                                    <p> &#8377 <b>$pro_price</b></p> 
+
+                                                                    <a href='details.php?pro_id=$pro_id' style='float:left'>Details</a>
+                                                                    <a href='index.php?pro_id=$pro_id'><button style='float:right'>Add to cart</button></a>
+
+                                                            </div>
+                                                         ";
+
+                                                    }
+                                  
+                                      
+                                    }
+                                     }
+                                      }
+
+
+
+
+
+
+
+function getbrandpro()
+                                    {     
+                                         if(isset($_GET['brand']))
+                                         {
+                                          
+                                            $brand_id=$_GET['brand'];    
+
+                                       echo '<link rel="stylesheet" href ="styles/style.css" media="all" />';
+
+                                      global $con;
+
+                                      $get_brand_pro="select * from products where product_brand='$brand_id'";
+
+                                      $run_brand_pro=mysqli_query($con,$get_brand_pro);
+
+                                      $count_brand=mysqli_num_rows($run_brand_pro);
+                                                     if($count_brand==0)
+                                                     {
+
+                                                         echo "<h2>Sorry !</h2><h3> No Products available for this Brand.</h3>";
+                                                         exit();
+                                                     }
+                                                  else
+                                                  {
+                                                       
+                                                    while($row_brand_pro=mysqli_fetch_array($run_brand_pro))
+                                                      {
+
+                                                       $pro_id=$row_brand_pro['product_id'];  
+                                                       $pro_cat=$row_brand_pro['product_cat'];
+                                                       $pro_brand=$row_brand_pro['product_brand'];
+                                                       $pro_title=$row_brand_pro['product_title'];
+                                                       $pro_price=$row_brand_pro['product_price'];
+                                                       $pro_image=$row_brand_pro[5];
+                                                       
+                                                       echo "
+                                                       
+                                                          <div id='single_product'>
+                                                                     <h3>$pro_title</h3>
+                                                   
+                                                                    <img src='admin/product_images/$pro_image' width='180' height='180' />
+
+                                                                    <p> &#8377 <b>$pro_price</b></p> 
+
+                                                                    <a href='details.php?pro_id=$pro_id' style='float:left'>Details</a>
+                                                                    <a href='index.php?pro_id=$pro_id'><button style='float:right'>Add to cart</button></a>
+
+                                                            </div>
+                                                         ";
+
+                                                    }
+                                  
+                                      
+                                    }
+                                     }
+                                      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ?>
