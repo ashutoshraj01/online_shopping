@@ -112,7 +112,7 @@ include("functions/functions.php");
                                                           <div id='single_product'>
                                                                      <h3>$pro_title</h3>
                                                    
-                                                                    <img src='admin/product_images/$pro_image' width='auto' height='auto' />
+                                                                    <img src='admin/product_images/$pro_image' width='300' height='300' />
 
                                                                     <p> &#8377 <b>$pro_price</b></p> 
                                                                     
