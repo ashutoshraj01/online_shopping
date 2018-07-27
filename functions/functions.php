@@ -26,16 +26,18 @@
            $ip=getIp();
           $pro_id=$_GET['add_cart'];
 
-          $check_pro="select * from cart where ip_add='$ip' AND p_id='$pro_id' ";
+          $check_pro="select * from cart where ip_add=$ip AND p_id=$pro_id";
 
-          $run_check=mysqli_query($con,$check_pro);
+          $run_check=mysqli_query($con,$check_pro) or die('error');
+          $test = mysqli_num_rows($run_check);
 
-          if(mysqli_num_rows($run_check)>0)
+          if($test>0)
              {
 
 
 
               echo "";
+              //mysqli_free_result($run_check);
 
 
              }
