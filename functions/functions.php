@@ -25,8 +25,10 @@
         {  
            $ip=getIp();
           $pro_id=$_GET['add_cart'];
+          //echo " id = ".$pro_id."<br>";
+         // echo "ip = ".$ip;
 
-          $check_pro="select * from cart where ip_add=$ip AND p_id=$pro_id";
+          $check_pro="select * from cart where ip_add= '$ip' and p_id='$pro_id'";
 
           $run_check=mysqli_query($con,$check_pro) or die('error');
           $test = mysqli_num_rows($run_check);
@@ -44,9 +46,9 @@
           else
           {
 
-           $insert_pro="insert into cart('p_id','ip_add') values('$pro_id','$ip')";
+           $insert_pro="insert into cart(p_id,ip_add) values('$pro_id','$ip')";
 
-           $run_pro=mysqli_query($con,$insert_pro);
+           $run_pro=mysqli_query($con,$insert_pro)or die('database error !');
 
            echo "<script>window.open('index.php','self')</script>";
        
