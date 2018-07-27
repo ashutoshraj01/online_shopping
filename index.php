@@ -73,6 +73,7 @@ include("functions/functions.php");
 
 
           <div id="content_area">
+                                     <?php cart(); ?>
              <div id=shopping_cart>
                
                   <span style="float: right; font-size: 18px; padding: 5px; line-height: 40px">
@@ -83,6 +84,7 @@ include("functions/functions.php");
                 </span>
 
              </div> 
+
              
 			              <div id="products_box">
 			                  <?php

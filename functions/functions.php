@@ -1,18 +1,62 @@
-
-
-
-
-
 <!-- functions used for database connection -->
 
-
 <?php
+        $con=mysqli_connect("localhost","root","","ecom");
+
+ 
+   function getIp() {                    // this function returns the ip address of a user
+    $ip = $_SERVER['REMOTE_ADDR'];
+ 
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    }
+ 
+    return $ip;
+}
+
+
+     function cart()                     // function for adding products to cart
+     {
+          global $con; 
+
+        if(isset($_GET['add_cart']))
+        {  
+           $ip=getIp();
+          $pro_id=$_GET['add_cart'];
+
+          $check_pro="select * from cart where ip_add='$ip' AND p_id='$pro_id' ";
+
+          $run_check=mysqli_query($con,$check_pro);
+
+          if(mysqli_num_rows($run_check)>0)
+             {
 
 
 
-    $con=mysqli_connect("localhost","root","","ecom");
+              echo "";
 
-    function getCats()   /* function for getting categories from database   */ 
+
+             }
+          else
+          {
+
+           $insert_pro="insert into cart('p_id','ip_add') values('$p_id','$ip')";
+
+           $run_pro=mysqli_query($con,$insert_pro);
+
+           echo "<script>window.open('index.php','self')</script>";
+       
+          }
+         
+      
+      }
+
+    }
+
+
+    function getCats()   /* function for getting categories from database   & displaying in sidebar*/ 
                     {
 
                     global $con;
@@ -41,7 +85,7 @@
 
 
 
-function getBrands()
+function getBrands()   // function for displaying all the brands in the sidebar
               {
 
                  global $con;
@@ -56,7 +100,7 @@ function getBrands()
                               $brand_id=$row_brands['brand_id'] ;
                               $brand_title=$row_brands['brand_title'];
 
-                              echo "<li> <a href='index.php?brand=$brand_id'>$brand_title</a></li>";  /* for displaying   */
+                              echo "<li> <a href='index.php?brand=$brand_id'>$brand_title</a></li>";  /* for displaying all brands  */
 
                            }
                 }
@@ -64,7 +108,7 @@ function getBrands()
 
 
 
-                       function getpro()
+                       function getpro()         // this will display products on the HOME
                                     {     
                                          if(!isset($_GET['cat']))
                                          {
@@ -99,7 +143,7 @@ function getBrands()
                                                                     <p> &#8377 <b>$pro_price</b></p> 
 
                                                                     <a href='details.php?pro_id=$pro_id' style='float:left'>Details</a>
-                                                                    <a href='index.php?pro_id=$pro_id'><button style='float:right'>Add to cart</button></a>
+                                                                    <a href='index.php?add_cart=$pro_id'><button style='float:right'>Add to cart</button></a>
 
                                                             </div>
                                                          ";
@@ -112,7 +156,7 @@ function getBrands()
 
 
 
-                                function getcatpro()
+                                function getcatpro()     // Displays products on the basis of category selected
                                     {     
                                          if(isset($_GET['cat']))
                                          {
@@ -175,7 +219,8 @@ function getBrands()
 
 
 
-function getbrandpro()
+function getbrandpro()            // Displays products on the basis of brand selected            
+
                                     {     
                                          if(isset($_GET['brand']))
                                          {
