@@ -74,7 +74,7 @@
                              }
                           else 
                              {
-                               $ip=getIp();
+                               
                                $get_items="select * from cart where ip_add='$ip'";
                                $run_items=mysqli_query($con,$get_items);
                                $count_items=mysqli_num_rows($run_items);
@@ -85,10 +85,43 @@
 
 
                      }
+// Calculating total price of all the items present in the cart
+
+function total_price()
+{ 
+
+  $total=0;
+  global $con;
+  $ip=getIp();
+  $sel_price="select * from cart where ip_add='$ip'";
+  $run_price=mysqli_query($con,$sel_price);
+
+    while($p_price=mysqli_fetch_array($run_price))
+   {
+     $pro_id=$p_price['p_id'];
+      
+     $pro_price="select * from products where product_id='$pro_id'";
+     $run_pro_price=mysqli_query($con,$pro_price);
+       
+        while($pp_price=mysqli_fetch_array($run_pro_price))
+        {
+
+            $product_price=array($pp_price['product_price']);
+            $values=array_sum($product_price); 
+            $total +=$values;
+
+
+        }
+
+   }
+         echo " &#8377 $total";
+         
+}
+
                        
 
-    function getCats()   /* function for getting categories from database   & displaying in sidebar*/ 
-                    {
+                    function getCats()   /* function for getting categories from database   & displaying in sidebar*/ 
+                     {
 
                     global $con;
 

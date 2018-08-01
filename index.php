@@ -77,10 +77,10 @@ include("functions/functions.php");
              <div id=shopping_cart>
                
                   <span style="float: center; font-size: 18px; padding: 5px; line-height: 40px">
-                        <b>   Welcome ! &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;  </b>
-                  <b style="color: yellow">   Shopping Cart: </b> <i style="color: red">Total Items:<?php total_items(); ?> </i> <b style="color: green">Total Price:</b>
-                  <a href="cart.php" style="color: yellow ">Go to Cart</a>
-
+                        <b style="font-size: 25px;">   Welcome ! &emsp; &emsp; &emsp; &emsp;  </b>
+                  <b style="color: yellow">Shopping Cart: </b> &emsp;<i>Total Items:<?php total_items(); ?> </i> &emsp;<b>Total Price:</b><?php total_price(); ?>&emsp;
+                  <a href="cart.php" style="color: yellow "><i>Go to Cart</i></a>
+                                        <!--   &emsp;   used for creating space -->
                 </span>
 
              </div> 

@@ -114,7 +114,7 @@ footer, header, hgroup, menu, nav, section {
                {
    	           width:800px;
                margin: auto; 
-               background:pink;
+               /*background:pink; */
               }
 
     #sidebar{
@@ -164,7 +164,7 @@ footer, header, hgroup, menu, nav, section {
 
     #products_box
           {
-           width: 780px;
+           width: 800px;
            text-align: center;
            margin-left: 30px;
            margin-bottom: 10px;
