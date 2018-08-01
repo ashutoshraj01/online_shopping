@@ -24,12 +24,12 @@
         if(isset($_GET['add_cart']))
         {  
            $ip=getIp();
-          $pro_id=$_GET['add_cart'];
-          //echo " id = ".$pro_id."<br>";
-         // echo "ip = ".$ip;
+           $pro_id=$_GET['add_cart'];
 
-          $check_pro="select * from cart where ip_add= '$ip' and p_id='$pro_id'";
 
+          
+
+          $check_pro="select * from cart where ip_add='$ip' and p_id='$pro_id'";
           $run_check=mysqli_query($con,$check_pro) or die('error');
           $test = mysqli_num_rows($run_check);
 
@@ -38,7 +38,9 @@
 
 
 
-              echo "";
+              //echo "Product already added..! U cant't add more than 1 product of same type.";
+               echo "<script>window.alert('Product has been already added Once ..!') </script>";
+               echo "<script>window.open('index.php','self')</script>";
               //mysqli_free_result($run_check);
 
 
@@ -48,7 +50,7 @@
 
            $insert_pro="insert into cart(p_id,ip_add) values('$pro_id','$ip')";
 
-           $run_pro=mysqli_query($con,$insert_pro)or die('database error !');
+           $run_pro=mysqli_query($con,$insert_pro);
 
            echo "<script>window.open('index.php','self')</script>";
        
@@ -58,7 +60,32 @@
       }
 
     }
+                     function total_items()    //function will count the total items
+                     {     global $con;
 
+                           $ip=getIp();
+                          if(isset($_GET['add_cart']))
+                             {
+                                 
+
+                                  $get_items="select * from cart where ip_add='$ip'";
+                                  $run_items=mysqli_query($con,$get_items);
+                                  $count_items=mysqli_num_rows($run_items);
+                             }
+                          else 
+                             {
+                               $ip=getIp();
+                               $get_items="select * from cart where ip_add='$ip'";
+                               $run_items=mysqli_query($con,$get_items);
+                               $count_items=mysqli_num_rows($run_items);
+
+                            }        
+                        
+                        echo $count_items;
+
+
+                     }
+                       
 
     function getCats()   /* function for getting categories from database   & displaying in sidebar*/ 
                     {

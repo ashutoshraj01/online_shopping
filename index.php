@@ -53,12 +53,12 @@ include("functions/functions.php");
      
      <!-- CONTENTS SECTION START HERE -->
               <div class="content">
-          
+                                     
 			            <div id="sidebar">
 			                <div id="sidebar_title">Categories</div>
 			                 
 			                    <ul id="cats">
-			                             <?php  getCats();  ?>
+			                             <?php  getCats();  ?> 
 
 			                     </ul>
 
@@ -76,9 +76,9 @@ include("functions/functions.php");
                                      <?php cart(); ?>
              <div id=shopping_cart>
                
-                  <span style="float: right; font-size: 18px; padding: 5px; line-height: 40px">
-                  Welcome !
-                  <b style="color: yellow">Shopping Cart:</b>Total Items: Total Price: </b>
+                  <span style="float: center; font-size: 18px; padding: 5px; line-height: 40px">
+                        <b>   Welcome ! &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;  </b>
+                  <b style="color: yellow">   Shopping Cart: </b> <i style="color: red">Total Items:<?php total_items(); ?> </i> <b style="color: green">Total Price:</b>
                   <a href="cart.php" style="color: yellow ">Go to Cart</a>
 
                 </span>
