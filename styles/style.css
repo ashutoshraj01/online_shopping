@@ -107,7 +107,7 @@ footer, header, hgroup, menu, nav, section {
       {
        width: 1000px;
        margin: auto;
-       background: pink;
+      /* background: pink;*/
       }
 
     #content_area

@@ -1,6 +1,3 @@
-
-
-  
 <!Doctype>
 <?php
 include("functions/functions.php");
@@ -89,116 +86,84 @@ include("functions/functions.php");
              </div> 
 
              
-			              <div >
-			                   <br>
-                              <form action="" method="post" enctype="multipart/form-data">  
-                                   <table  align="center" width="700" >
-        							                             
-                                        <tr style="color: blue">
+			              <div id="products_box">
+			                       <br>
 
-                                         <th>Remove</th>
-                                         <th>Product(s)</th>
-                                         <th>Quantity</th>
-                                         <th>Total Price</th>
-                                         
-                                       
-                                        </tr>
-
-
+                                   <form action="" method="post" enctype="multipart/form-data">
+                                       <table align="center" width="700"  >
+                                       	  <tr style="color: blue">
+                                       	  	<th>Remove</th>
+                                       	  	<th>Product(s)</th>
+                                       	  	<th>Quantity</th>
+                                       	  	<th>Total Price</th>
+                                       	  </tr>
+                                              
                                               <?php
-
-													        $total=0;
-													        global $con;
-														    $ip=getIp();
-														    $sel_price="select * from cart where ip_add='$ip'";
-														    $run_price=mysqli_query($con,$sel_price);
+                                                        
+                                                        $total=0;
+														  global $con;
+														  $ip=getIp();
+														  $sel_price="select * from cart where ip_add='$ip'";
+														  $run_price=mysqli_query($con,$sel_price);
 
 														    while($p_price=mysqli_fetch_array($run_price))
-															  {
-															     $pro_id=$p_price['p_id'];
-																	      
-															      $pro_price="select * from products where product_id='$pro_id'";
-																   $run_pro_price=mysqli_query($con,$pro_price);
-																	       
-																	    while($pp_price=mysqli_fetch_array($run_pro_price))
-																	       {
+														   {
+														     $pro_id=$p_price['p_id'];
+														      
+														     $pro_price="select * from products where product_id='$pro_id'";
+														     $run_pro_price=mysqli_query($con,$pro_price);
+														       
+														        while($pp_price=mysqli_fetch_array($run_pro_price))
+														        {
 
-																	            $product_price=array($pp_price['product_price']);
-                                                                                   $product_title=$pp_price['product_title'];
-                                                                                   $product_image=$pp_price['product_image'];
-                                                                                   $single_price=$pp_price['product_price'];
+														            $product_price=array($pp_price['product_price']);
+														            $product_title=$pp_price['product_title']; 
+														            $product_image=$pp_price['product_image'];
+														            $single_price=$pp_price['product_price'];
 
-																	            $values=array_sum($product_price); 
-																	            $total +=$values;
-                                               ?>
-                                             <tr align="center">
-                                             	   <td><input type="checkbox" name="remove[]" value="<?php echo "$pro_id"; ?>" /></td>	
-                                             	   <td><?php echo $product_title;  ?><br>
-                                                     <img src="admin/product_images/<?php echo $product_image; ?>" width="80" height="80" />
-                                             	   </td>
-                                                   <td><input type="text" name="qty" size="2"></td>
-                                                   <td><?php echo "&#8377 $single_price ";  ?></td>
+														            $values=array_sum($product_price);
+														            $total +=$values;
+
+														         //echo " &#8377 $total";  
+                                                  
+
+                                                ?>
+
+                                                    
+                                                <tr align="center">
+
+                                                	<td><br><br><br><input type="checkbox"  name="Remove[]"></td>
+                                                	<td><br><?php echo "$product_title"; ?><br>
+                                                       <img src="admin/product_images/<?php echo "$product_image"  ?>" width="80" height="80" /> 
+                                                	</td>
+                                                	<td><br><br><br><input type="" name="text" size="2" name="qty"></td>
+                                                	<td><br><br><br><?php echo "&#8377 $single_price";  ?><br></td>
 
 
-                                            
-                                         <?php  }    }  ?>
-                                           
-                                             
-                                             </tr>
+                                                </tr>
+
                                               
-                                              <tr  align="right">
+                                             <?php  } } ?>
 
-                                              	<td align="right" colspan="3"><b>Sub Total:</b></td>
-                                              	<td align="right"><?php echo $total; ?></td>
-                                              </tr>  
-
-                                               <tr align="center">
-                                               	    <td colspan="2"><input type="submit" name="update_cart" value="Update Cart"> </td>
-                                               	    <td ><input type="submit" name="continue" value="Continue Shopping"></td>
-                                               	    <td ><button><a href="checkout.php" style="text-decoration: none; color: black" >Checkout</a></button></td>	
-                                               	 
-                                               </tr>
-
-                                    </table>  
-                                     
-
-       
-                             </form>
-
-                        <?php
-
-                         if(isset($_POST['update_cart']))
-                         {
-                            foreach ($_POST['remove'] as $remove_id) 
-                            {
-                               $delete_product="delete from cart where p_id='$remove_id' and ip_add='$ip'";
-                               $run_delete=mysqli_query($con,$delete_product);
-
-                               if($run_delete)
-                                 {
-                                    echo "<script>window.open('cart.php','_self')</script>";
+                                            <tr align="center"> 
+                                            	<td align="right" colspan="3"><br><br><br><b>Sub Total: </b></td>
+                                            	<td ><br><br><br><?php echo " &#8377 $total";  ?></td>
 
 
-                                 }  
-                              
-                            
-                            }
+
+                                            </tr>
 
 
 
 
-                         }
 
-                                  if(isset($_POST['continue']))
-                                  	 {
-
-                                         echo "<script>window.open('index.php','_self')</script>";
-
-                                  	 }
-  
+                                       </table>
 
 
-                        ?>
+                                   	
+                                   </form>
+
+
 
 
 			              </div>
@@ -229,3 +194,8 @@ include("functions/functions.php");
 
 </body>
 </html>
+     
+
+
+
+
