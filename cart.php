@@ -132,7 +132,7 @@ include("functions/functions.php");
                                                     
                                                 <tr align="center">
 
-                                                	<td><br><br><br><input type="checkbox"  name="Remove[]"></td>
+                                                	<td><br><br><br><input type="checkbox"  name="remove[]" value="<?php echo $pro_id; ?>"></td>
                                                 	<td><br><?php echo "$product_title"; ?><br>
                                                        <img src="admin/product_images/<?php echo "$product_image"  ?>" width="80" height="80" /> 
                                                 	</td>
@@ -153,6 +153,14 @@ include("functions/functions.php");
 
                                             </tr>
 
+                                            <tr align="center">
+                                            	<td><br><input type="submit" name="update_cart" value="Update Cart"></td>
+                                            	<td><br><input type="submit" name="continue" value="Continue Shopping"></td>
+                                                <td><br><button ><a  href="checkout.php" style="text-decoration: none; color:black;">Checkout</a></button></td>
+
+
+                                            </tr>
+
 
 
 
@@ -165,6 +173,31 @@ include("functions/functions.php");
 
 
 
+                                   <?php
+                                           $ip=getIp();
+
+                                          if(isset($_POST['update_cart']))
+                                             {  
+                                             	foreach ($_POST['remove'] as $remove_id) 
+                                             	{
+                                                   $delete_product= "delete from cart where p_id='$remove_id' and ip_add='$ip'";
+                                                   $run_delete=mysqli_query($con,$delete_product) or die("nonono");
+                                                      if($run_delete)
+                                                      {
+                                                         echo "<script>window.open('cart.php',_self)</script>";
+
+                                                      }
+
+
+                                                 }
+                                             }
+
+                                             if(isset($_POST['continue']))
+                                             {
+                                             	echo "<script>window.open('index.php','_self')</script>";
+                                             }
+
+                                  ?>
 
 			              </div>
           </div>
