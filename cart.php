@@ -1,5 +1,6 @@
 <!Doctype>
 <?php
+session_start();
 include("functions/functions.php");
 
 ?>
@@ -136,7 +137,29 @@ include("functions/functions.php");
                                                 	<td><br><?php echo "$product_title"; ?><br>
                                                        <img src="admin/product_images/<?php echo "$product_image"  ?>" width="80" height="80" /> 
                                                 	</td>
-                                                	<td><br><br><br><input type="" name="text" size="2" name="qty"></td>
+                                                	<td><br><br><br><input type="text" size="2" name="qty" value="<?php echo $_SESSION['qty']; ?>"/></td>
+                                                       
+                                                     <?php
+                                                            if(isset($_POST['update_cart']))    // used for updating quantity in the cart table.
+                                                               {
+                                                                 $qty=$_POST['qty'];
+                                                                 	$update_qty="update cart set qty='$qty'"; 
+                                                                 	$run_qty=mysqli_query($con,$update_qty);
+                                                                    
+                                                                    $_SESSION['qty']=$qty;
+                                                                    $total=$total*$qty;
+                                                                    $single_price=$single_price*$qty;
+
+
+                                                               } 
+
+
+
+
+
+
+                                                       ?>
+
                                                 	<td><br><br><br><?php echo "&#8377 $single_price";  ?><br></td>
 
 
@@ -173,7 +196,13 @@ include("functions/functions.php");
 
 
 
-                                   <?php
+                                  <?php
+
+
+                                 //function updatecart()
+                                 {
+
+                                           global $con;          // used for removing the item from cart
                                            $ip=getIp();
 
                                           if(isset($_POST['update_cart']))
@@ -181,23 +210,26 @@ include("functions/functions.php");
                                              	foreach ($_POST['remove'] as $remove_id) 
                                              	{
                                                    $delete_product= "delete from cart where p_id='$remove_id' and ip_add='$ip'";
-                                                   $run_delete=mysqli_query($con,$delete_product) or die("nonono");
+                                                   $run_delete=mysqli_query($con,$delete_product) or die("query didn't worked");
                                                       if($run_delete)
                                                       {
-                                                         echo "<script>window.open('cart.php',_self)</script>";
+                                                         echo "<script> window.open('cart.php','_self')</script>";
 
                                                       }
 
 
                                                  }
                                              }
+                                            
 
-                                             if(isset($_POST['continue']))
+                                             if(isset($_POST['continue']))    // used for redirecting to main page(index.php) from the cart page(cart.php).
                                              {
                                              	echo "<script>window.open('index.php','_self')</script>";
                                              }
 
-                                  ?>
+                                          //echo @$up_cart=updatecart();   
+                                 }
+                              ?>
 
 			              </div>
           </div>
