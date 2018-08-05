@@ -1,5 +1,6 @@
 <!Doctype>
 <?php
+session_start();
 include("functions/functions.php");
 
 ?>
@@ -74,13 +75,33 @@ include("functions/functions.php");
 
           <div id="content_area">
                                      <?php cart(); ?>
-             <div id=shopping_cart>
+             <div id="shopping_cart">
                
                   <span style="float: center; font-size: 18px; padding: 5px; line-height: 40px">
-                        <b style="font-size: 25px;">   Welcome ! &emsp; &emsp; &emsp; &emsp;  </b>
+                        <b style="font-size: 25px;">   Welcome ! &emsp; &emsp; </b>
                   <b style="color: yellow">Shopping Cart: </b> &emsp;<i>Total Items:<?php total_items(); ?> </i> &emsp;<b>Total Price:</b><?php total_price(); ?>&emsp;
-                  <a href="cart.php" style="color: yellow; text-decoration: none"><i>Go to Cart</i></a>
-                                        <!--   &emsp;   used for creating space -->
+                  <a href="cart.php" style="color: yellow; text-decoration: none"><i>Go to Cart &emsp;</i></a>   <!--   &emsp;   used for creating space -->
+                
+             
+
+                 <?php
+
+                   if(!isset($_SESSION['customer_email']))
+                   {
+                     
+                     echo "<a href='checkout.php' style='color:red; text-decoration:none;'>Login</a>";
+                   }
+
+                   else
+                   {
+                      
+                       echo "<a href='logout.php' style='color:red; text-decoration:none'>Logout</a>";
+                   }
+               ?>
+
+             
+
+
                 </span>
 
              </div> 

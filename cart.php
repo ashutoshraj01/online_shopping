@@ -268,11 +268,6 @@ include("functions/functions.php");
 <!-- MAIN CONTAINER ENDS HERE-->
 
 
-<?php
-
-session_destroy();
-?>
-
 
 
 
