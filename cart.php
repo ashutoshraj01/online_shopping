@@ -80,7 +80,7 @@ include("functions/functions.php");
                   <span style="float: center; font-size: 18px; padding: 5px; line-height: 40px">
                         <b style="font-size: 25px;">   Welcome ! &emsp; &emsp; &emsp; &emsp;  </b>
                   <b style="color: yellow">Shopping Cart: </b> &emsp;<i>Total Items:<?php total_items(); ?> </i> &emsp;<b>Total Price:</b><?php total_price(); ?>&emsp;
-                  <a href="cart.php" style="color: yellow "><i>Go to Cart</i></a>
+                  <a href="cart.php" style="color: yellow; text-decoration: none "><i>Go to Cart</i></a>
                                         <!--   &emsp;   used for creating space -->
                 </span>
 
@@ -100,7 +100,7 @@ include("functions/functions.php");
                                        	  </tr>
                                               
                                               <?php
-                                                        
+                                                              
                                                         $total=0;
 														  global $con;
 														  $ip=getIp();
@@ -110,6 +110,9 @@ include("functions/functions.php");
 														    while($p_price=mysqli_fetch_array($run_price))
 														   {
 														     $pro_id=$p_price['p_id'];
+                                 global $qty;           // for test purpose
+                                 $qty=$p_price['qty'];  //for test purpose
+                                 
 														      
 														     $pro_price="select * from products where product_id='$pro_id'";
 														     $run_pro_price=mysqli_query($con,$pro_price);
@@ -126,6 +129,8 @@ include("functions/functions.php");
 														            $total +=$values;
 
 														         //echo " &#8377 $total";  
+
+                                                  
                                                   
 
                                                 ?>
@@ -137,18 +142,23 @@ include("functions/functions.php");
                                                 	<td><br><?php echo "$product_title"; ?><br>
                                                        <img src="admin/product_images/<?php echo "$product_image"  ?>" width="80" height="80" /> 
                                                 	</td>
-                                                	<td><br><br><br><input type="text" size="2" name="qty" value="<?php echo $_SESSION['qty']; ?>"/></td>
+                                                	<td>
+                                                      <br><br><br>
+
+                                                              
+                                                          <input type="text" size="2" name="qty" value="<?php echo $_SESSION["qty"]; ?>" />
+                                                    </td>
                                                        
                                                      <?php
                                                             if(isset($_POST['update_cart']))    // used for updating quantity in the cart table.
                                                                {
-                                                                 $qty=$_POST['qty'];
+                                                                 echo $qty=$_POST['qty'];
                                                                  	$update_qty="update cart set qty='$qty'"; 
                                                                  	$run_qty=mysqli_query($con,$update_qty);
                                                                     
                                                                     $_SESSION['qty']=$qty;
-                                                                    $total=$total*$qty;
-                                                                    $single_price=$single_price*$qty;
+                                                                    (int)$total=(int)$total* (int)$qty;
+                                                                    (int)$single_price=(int)$single_price* (int)$qty;
 
 
                                                                } 
@@ -166,7 +176,9 @@ include("functions/functions.php");
                                                 </tr>
 
                                               
-                                             <?php  } } ?>
+                                             <?php  } }  ?>  
+
+                                           
 
                                             <tr align="center"> 
                                             	<td align="right" colspan="3"><br><br><br><b>Sub Total: </b></td>
@@ -207,6 +219,8 @@ include("functions/functions.php");
 
                                           if(isset($_POST['update_cart']))
                                              {  
+                                              if(isset($_POST['remove']))
+                                              {
                                              	foreach ($_POST['remove'] as $remove_id) 
                                              	{
                                                    $delete_product= "delete from cart where p_id='$remove_id' and ip_add='$ip'";
@@ -220,6 +234,8 @@ include("functions/functions.php");
 
                                                  }
                                              }
+
+                                          }
                                             
 
                                              if(isset($_POST['continue']))    // used for redirecting to main page(index.php) from the cart page(cart.php).
@@ -252,7 +268,10 @@ include("functions/functions.php");
 <!-- MAIN CONTAINER ENDS HERE-->
 
 
+<?php
 
+session_destroy();
+?>
 
 
 

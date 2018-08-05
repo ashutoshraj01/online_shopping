@@ -200,4 +200,13 @@ footer, header, hgroup, menu, nav, section {
          clear: both;
          background: grey;
          margin: auto;
-       }0
+       }
+#register
+{
+background: skyblue;
+}
+
+#customer_login
+{
+  background-color:pink;
+}

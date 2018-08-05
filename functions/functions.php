@@ -48,7 +48,7 @@
           else
           {
 
-           $insert_pro="insert into cart(p_id,ip_add) values('$pro_id','$ip')";
+           $insert_pro="insert into cart(p_id,qty,ip_add) values('$pro_id','1','$ip')";
 
            $run_pro=mysqli_query($con,$insert_pro);
 
