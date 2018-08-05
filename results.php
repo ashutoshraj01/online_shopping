@@ -75,10 +75,30 @@ include("functions/functions.php");
           <div id="content_area">
              <div id=shopping_cart>
                
-                  <span style="float: right; font-size: 18px; padding: 5px; line-height: 40px">
-                  Welcome !
-                  <b style="color: yellow">Shopping Cart:</b>Total Items: Total Price: </b>
-                  <a href="cart.php" style="color: yellow ">Go to Cart</a>
+                  <span style="float: center; font-size: 18px; padding: 5px; line-height: 40px">
+                  Welcome !&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  Total Items: &emsp;Total Price: &emsp;</b>
+                  <a href="cart.php" style="color: yellow; text-decoration:none">Go to Cart &emsp;&emsp;</a>
+                
+                    <?php
+
+                   if(!isset($_SESSION['customer_email']))
+                   {
+                     
+                     echo "<a href='checkout.php' style='color:red; text-decoration:none;'>Login</a>";
+                   }
+
+                   else
+                   {
+                      
+                       echo "<a href='logout.php' style='color:red; text-decoration:none'>Logout</a>";
+                   }
+               ?>
+
+
+
+
+
 
                 </span>
 

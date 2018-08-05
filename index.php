@@ -78,8 +78,27 @@ include("functions/functions.php");
              <div id="shopping_cart">
                
                   <span style="float: center; font-size: 18px; padding: 5px; line-height: 40px">
-                        <b style="font-size: 25px;">   Welcome ! &emsp; &emsp; </b>
-                  <b style="color: yellow">Shopping Cart: </b> &emsp;<i>Total Items:<?php total_items(); ?> </i> &emsp;<b>Total Price:</b><?php total_price(); ?>&emsp;
+
+                    <?php
+                            if(isset($_SESSION['customer_email']))
+                            {
+                               echo "<b>Welcome &emsp;</b>".$_SESSION['customer_email'];
+
+                            }
+
+                            else
+                            {
+
+                              echo "<b>Welcome Guest!</b>";
+                            }
+ 
+
+
+                    ?>
+
+
+                        
+                   &emsp;<i>Total Items:<?php total_items(); ?> </i> &emsp;<b>Total Price:</b><?php total_price(); ?>&emsp;
                   <a href="cart.php" style="color: yellow; text-decoration: none"><i>Go to Cart &emsp;</i></a>   <!--   &emsp;   used for creating space -->
                 
              
