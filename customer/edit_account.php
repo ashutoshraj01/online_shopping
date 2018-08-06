@@ -7,6 +7,7 @@
                                     $run_customer=mysqli_query($con,$get_customer);
                                      $row_customer=mysqli_fetch_array($run_customer);
 
+                                     $c_id=$row_customer['customer_id']; 
                                      $name=$row_customer['customer_name'];
                                      $email=$row_customer['customer_email'];
                                      $pass=$row_customer['customer_pass'];
@@ -39,7 +40,7 @@
 </html>   
            
        <div id="register">
-            <form action="customer_register.php" method="post" enctype="multipart/form-data">
+            <form action="" method="post" enctype="multipart/form-data">
 
             	<table  align="center" width="750">
             		<tr><br>
@@ -128,54 +129,35 @@
 
 <?php
 
- if(isset($_POST['register']))
+ if(isset($_POST['update']))
      {
          $ip=getIp();
 
+         $customer_id=$c_id;
          $c_name=$_POST['c_name'];
          $c_email=$_POST['c_email'];
          $c_pass=$_POST['c_pass'];
          $c_image=$_FILES['c_image']['name'];
          $c_image_tmp=$_FILES['c_image']['tmp_name'];
-         $c_country=$_POST['c_country'];
+         //$c_country=$_POST['c_country'];
          $c_city=$_POST['c_city'];
          $c_contact=$_POST['c_contact'];
          $c_address=$_POST['c_address'];
 
-        move_uploaded_file($c_image_tmp, "customer/customer_images/$c_image");
+        move_uploaded_file($c_image_tmp, "customer_images/$c_image");
 
-           $insert_c="insert into customers (customer_ip,customer_name,customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_address,customer_image) 
-             values('$ip','$c_name','$c_email','$c_pass','$c_country','$c_city','$c_contact','$c_address','$c_image')";
+           $update_c="update customers set  customer_name='$c_name', customer_email='$c_email', customer_pass='$c_pass',customer_city='$c_city',customer_contact='$c_contact',customer_address='$c_address',customer_image='$c_image' where customer_id='$customer_id'";
 
-          $run_c=mysqli_query($con,$insert_c);
+          $run_update=mysqli_query($con,$update_c);
 
-          $sel_cart="select * from cart where ip_add='$ip'";
+          if($run_update)
+          {
+            echo "<script> alert('Your Account Updated Successfully..!')</script>";
+            echo "<script>window.open('my_account.php','_self')</script>";
+          }
 
-          $run_cart=mysqli_query($con,$sel_cart);
-           
-            $check_cart=mysqli_num_rows($run_cart);
-
-            if($check_cart==0)
-            {
-                $_SESSION['customer_email']=$c_email;
-               echo "<script> alert('Account Created Successfully..!') </script>";
-                echo "<script>window.open('customer/my_account.php','_self')</script>";
-            }
-            else
-            {
-               $_SESSION['customer_email']=$c_email;
-               echo "<script> alert('Account Created Successfully..!') </script>";
-                echo "<script>window.open('checkout.php','_self')</script>";   
-            }
-
-
-
-
+       
      }
-
-
-
-
 
 
 ?>

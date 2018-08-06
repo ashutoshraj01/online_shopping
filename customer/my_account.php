@@ -22,7 +22,7 @@ include("functions/functions.php");
         <!-- HEADER STARTS HERE -->    
          <div class="header">
             
-              <a href="index.php"><img id="logo_image" src="images/logo"/></a>
+              <a href="../index.php"><img id="logo_image" src="images/logo"/></a>
               <img id="logo_image" src="images/logo1" style="width: 70% " /> 
 
 
@@ -32,10 +32,10 @@ include("functions/functions.php");
        <!-- NAVIGATION BAR STARTS HERE --> 
         <div class="menubar">
             <ul id="menu">
-                <li><a href="index.php">HOME</a></li>
-                <li><a href="all_products.php">ALL PRODUCTS</a></li>
-                <li><a href="customer/my_account.php">MY ACCOUNTS</a></li>
-                <li><a href="">SIGN UP</a></li>
+                <li><a href="../index.php">HOME</a></li>
+                <li><a href="../all_products.php">ALL PRODUCTS</a></li>
+                <li><a href="my_account.php">MY ACCOUNTS</a></li>
+                <li><a href="#">SIGN UP</a></li>
                 <li><a href="cart.php">SHOPPING CART</a></li>
                 <li><a href="#">CONTACT US</a></li>
            </ul>
@@ -155,7 +155,7 @@ include("functions/functions.php");
                                            if(!isset($_GET['delete_account']))
                                             {
                                 
-                             echo	"<h2> Welcome  &emsp;<?php echo '$c_name';    ?></h2><br>";
+                             echo	"<h2> Welcome <?php echo $c_name; ?></h2><br>";
 
 			                 echo  "<b>You Can See Your orders progress by clicking this <a href='my_account.php?my_orders'>link</a></b>";
 			                
