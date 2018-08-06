@@ -174,7 +174,21 @@ footer, header, hgroup, menu, nav, section {
            text-align: center;
            margin-left: 30px;
            margin-bottom: 10px;
+           padding: 20px;
+           
           }
+
+     #products_box a
+     {
+       text-decoration: none;
+     }     
+
+    #products_box a:hover
+    {
+        color:red;
+        font-weight: bold;
+        text-decoration: none;
+    }      
 
    #single_product
           {
@@ -209,7 +223,8 @@ footer, header, hgroup, menu, nav, section {
        }
 #register
 {
-background: skyblue;
+  width: 750px;
+/*background: red;*/
 }
 
 #customer_login

@@ -70,6 +70,8 @@ include("functions/functions.php");
 
                                     $c_image=$row_img['customer_image'];
 
+                                    $c_name=$row_img['customer_name'];
+
                                     echo "<p style='text-align:center;'>  <img src='customer_images/$c_image' width='150' height='150' />";
 
 
@@ -138,8 +140,52 @@ include("functions/functions.php");
 
              
 			              <div id="products_box">
+
+			              
+                           
+                           <?php
+                                 if(!isset($_GET['my_orders']))
+                                 {
+
+                                 	if(!isset($_GET['edit_account']))
+                                 	{
+                                 		if(!isset($_GET['change_pass']))
+                                          {
+             
+                                           if(!isset($_GET['delete_account']))
+                                            {
+                                
+                             echo	"<h2> Welcome  &emsp;<?php echo '$c_name';    ?></h2><br>";
+
+			                 echo  "<b>You Can See Your orders progress by clicking this <a href='my_account.php?my_orders'>link</a></b>";
+			                
+			             }
+
+                    }
 			         
-			              </div>	
+			         }
+
+			     }
+
+
+                        ?>
+
+
+
+                        <?php
+
+                          if(isset($_GET['edit_account']))
+                          {
+                              include("edit_account.php");
+                          }
+
+
+
+
+
+
+                        ?>
+                      			              </div>	
           </div>
 
 
