@@ -72,6 +72,7 @@ include("functions/functions.php");
 
                                     $c_name=$row_img['customer_name'];
 
+
                                     echo "<p style='text-align:center;'>  <img src='customer_images/$c_image' width='150' height='150' />";
 
 
@@ -155,7 +156,7 @@ include("functions/functions.php");
                                            if(!isset($_GET['delete_account']))
                                             {
                                 
-                             echo	"<h2> Welcome <?php echo $c_name; ?></h2><br>";
+                             echo	"<h2> Welcome  $c_name </h2><br>";
 
 			                 echo  "<b>You Can See Your orders progress by clicking this <a href='my_account.php?my_orders'>link</a></b>";
 			                
@@ -182,6 +183,11 @@ include("functions/functions.php");
                                if(isset($_GET['change_pass']))
                           {
                               include("change_pass.php");
+                          }
+
+                           if(isset($_GET['delete_account']))
+                          {
+                              include("delete_account.php");
                           }
 
 
