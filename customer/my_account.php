@@ -36,7 +36,7 @@ include("functions/functions.php");
                 <li><a href="../all_products.php">ALL PRODUCTS</a></li>
                 <li><a href="my_account.php">MY ACCOUNTS</a></li>
                 <li><a href="#">SIGN UP</a></li>
-                <li><a href="cart.php">SHOPPING CART</a></li>
+                <li><a href="../cart.php">SHOPPING CART</a></li>
                 <li><a href="#">CONTACT US</a></li>
            </ul>
 
@@ -177,6 +177,11 @@ include("functions/functions.php");
                           if(isset($_GET['edit_account']))
                           {
                               include("edit_account.php");
+                          }
+
+                               if(isset($_GET['change_pass']))
+                          {
+                              include("change_pass.php");
                           }
 
 
