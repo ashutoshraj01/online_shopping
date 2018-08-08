@@ -16,9 +16,9 @@
   
      <div id="header"></div>
 
-     <div id="right"></div>
+     <div id="right"><b>Manage Content</b></div>
 
-     <div id="left">Manage Content</div>
+     <div id="left"></div>
 
 
 	</div>

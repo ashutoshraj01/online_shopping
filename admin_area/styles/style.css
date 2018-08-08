@@ -40,7 +40,7 @@ footer, header, hgroup, menu, nav, section {
 
 
 
- body{background:skyblue;}
+ body{background:blue;}
 
  .main_wrapper
  {
@@ -61,16 +61,21 @@ footer, header, hgroup, menu, nav, section {
 
 #left
 {
-	width: 795px;
-	height: 600px;
+	width: 1150px;
+	height: 620px;
 	background-image: url(../images/bi.jpeg);
-	float: left;
+	float: center;
 }
 
 #right
 {
-	width: 200px;
+	 padding: 9px;
+	 text-align: center;
+	width: 250px;
 	height: 600px;
 	float: right;
-	border-left: 5px groove black;   
+	border-left: 5px groove black;
+	background :#187eae;
+	color: yellow;
+	   
 }
