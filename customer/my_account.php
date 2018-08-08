@@ -156,7 +156,7 @@ include("functions/functions.php");
                                            if(!isset($_GET['delete_account']))
                                             {
                                 
-                             echo	"<h2> Welcome  $c_name </h2><br>";
+                             echo 	"<h2> Welcome  $c_name </h2><br>";
 
 			                 echo  "<b>You Can See Your orders progress by clicking this <a href='my_account.php?my_orders'>link</a></b>";
 			                
