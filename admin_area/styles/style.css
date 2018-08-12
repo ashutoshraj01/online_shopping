@@ -40,7 +40,7 @@ footer, header, hgroup, menu, nav, section {
 
 
 
- body{background:blue;}
+ body{background:#187eae;}
 
  .main_wrapper
  {
@@ -76,6 +76,23 @@ footer, header, hgroup, menu, nav, section {
 	float: right;
 	border-left: 5px groove black;
 	background :#187eae;
-	color: yellow;
-	   
 }
+
+#right a
+{
+	text-decoration: none;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	font-family: palatino;
+	margin: 6px;
+	display: block;	
+	padding: 6px;
+}
+
+  #right a:hover
+          {   /* when someone points the cursor */
+           color: black;
+           font-weight: bolder;
+           text-decoration: none; /* adding underline*/
+          }

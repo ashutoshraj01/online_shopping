@@ -1,25 +1,25 @@
 <!DOCTYPE>
 <?php
-      include("./includes/db.php");
+      include("includes/db.php");
 ?>
 <html>
 <head>
 
        <!-- JAVASCRIPT CODE FOR COMBINING THE TEXTAREA WITH TEXT EDITOR    needs internet connectivity-->
 
-    <!--      <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+         <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'textarea' });</script>
 
-   -->
+   
 
 
 	<title>Admin Panel</title>
 </head>
 <body bgcolor="skyblue">
 
-   <form action="index.php" method="post" enctype="multipart/form-data"> <!-- entype= multitype means we will receive data in multiple formats like images or may be videos -->
+   <form action=" " method="post" enctype="multipart/form-data"> <!-- entype= multitype means we will receive data in multiple formats like images or may be videos -->
    
-   <table align="center" width="750" border="10" bgcolor="yellow">
+   <table align="center" width="1077" height="622" border="10" bgcolor="#187eae">
 
  <tr align="center"> 
  	<td colspan="2" style="padding-top:10px;"><h2 >  Insert Products </h2></td>
@@ -27,15 +27,15 @@
 
  <tr>
  	
- 	<td align="center"> Product Title: </td>
- 	<td align="center"><input type="text" name="product_title" required />
+ 	<td align="right"> Product Title: </td>
+ 	<td align="left"><input type="text" name="product_title" required />
 
  </tr>
 
  <tr>
  	
- 	<td align="center"> Product Category: </td>
- 	<td align="center"> 
+ 	<td align="right"> Product Category: </td>
+ 	<td align="left"> 
         <select name="product_cat">
         	  <option>Select a Category</option>
                <?php
@@ -61,8 +61,8 @@
  </tr>
  <tr>
  	
- 	<td align="center"> Product Brand: </td>
- 	<td align="center">
+ 	<td align="right"> Product Brand: </td>
+ 	<td align="left">
          <select name="product_brand">
          	<option>Select a Brand</option>
           <?php
@@ -87,19 +87,19 @@
  </tr>
  <tr>
  	
- 	<td align="center"> Product Image: </td>
- 	<td align="center"><input type="file" name="product_image"  />
+ 	<td align="right"> Product Image: </td>
+ 	<td align="left"><input type="file" name="product_image"  />
 
  </tr>
  <tr>
  	
- 	<td align="center"> Product Price: </td>
- 	<td align="center" ><input type="text" name="product_price"  required />
+ 	<td align="right"> Product Price: </td>
+ 	<td align="left" ><input type="text" name="product_price"  required />
 
  </tr>
  <tr>
  	
- 	<td align="center"> Product Description: </td>
+ 	<td align="right"> Product Description: </td>
  	<td>
  		<textarea name="product_desc" cols="80" rows="10"></textarea>
  	</td>
@@ -107,8 +107,8 @@
  </tr>
  <tr>
  	
- 	<td align="center"> Product keywords: </td>
- 	<td align="center"><input type="text" name="product_keywords" required />
+ 	<td align="right"> Product keywords: </td>
+ 	<td align="left"><input type="text" name="product_keywords" required />
 
  </tr>
   <tr align="center">
@@ -130,6 +130,7 @@
 
 
 <?php
+  global $con;
 
  if(isset($_POST['insert_post']))
    {
@@ -155,20 +156,21 @@
    $query = "insert into products  values ('$product_cat','$product_brand','$product_title','$product_price','$product_desc','$product_image','$product_keywords','')";
 
 
-   /*echo "products title = ".$product_title;
+  /* echo "products title = ".$product_title;
    echo "act = ".$product_cat;
    echo "brand = ".$product_brand;
    echo "price = ".$product_price;
    echo "desc = ".$product_desc;
    echo "keywords = ".$product_keywords;
-   echo "image name ".$product_image;
-   */
+   echo "image name ".$product_image;  */
+   
 
 
   mysqli_query($con,$query) or die ("can not work!"); 
 
+
   echo "<script>alert('Product has been inserted')</script>";
-  echo "<script> window.open('insert_product.php','self')</script>";
+  echo "<script> window.open('index.php?insert_product','self')</script>";
 
    }
 
