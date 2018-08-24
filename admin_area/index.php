@@ -56,6 +56,11 @@
                 include("insert_cat.php");
                }
 
+                if(isset($_GET['view_cats']))
+               {
+                include("view_cats.php");
+               }
+
 
      	?>
      </div>
