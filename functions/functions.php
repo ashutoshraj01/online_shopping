@@ -260,7 +260,7 @@ function getBrands()   // function for displaying all the brands in the sidebar
                                                           <div id='single_product'>
                                                                      <h3>$pro_title</h3>
                                                    
-                                                                    <img src='admin/product_images/$pro_image' width='180' height='180' />
+                                                                    <img src='admin_area/product_images/$pro_image' width='180' height='180' />
 
                                                                     <p> &#8377 <b>$pro_price</b></p> 
 
@@ -324,7 +324,7 @@ function getbrandpro()            // Displays products on the basis of brand sel
                                                           <div id='single_product'>
                                                                      <h3>$pro_title</h3>
                                                    
-                                                                    <img src='admin/product_images/$pro_image' width='180' height='180' />
+                                                                    <img src='admin_area/product_images/$pro_image' width='180' height='180' />
 
                                                                     <p> &#8377 <b>$pro_price</b></p> 
 

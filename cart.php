@@ -2,6 +2,7 @@
 <?php
 session_start();
 include("functions/functions.php");
+// $_SESSION["qty"]="1";
 
 ?>
 
@@ -159,19 +160,20 @@ include("functions/functions.php");
 
                                                 	<td><br><br><br><input type="checkbox"  name="remove[]" value="<?php echo $pro_id; ?>"></td>
                                                 	<td><br><?php echo "$product_title"; ?><br>
-                                                       <img src="admin/product_images/<?php echo "$product_image"  ?>" width="80" height="80" /> 
+                                                       <img src="admin_area/product_images/<?php echo "$product_image"  ?>" width="80" height="80" /> 
                                                 	</td>
-                                                	<td>
+                                                	<td >
                                                       <br><br><br>
 
-                                                              
-                                                          <input type="text" size="2" name="qty" value="<?php echo $_SESSION["qty"]; ?>" />
+ 
+                                                        <input type="number"  name="qty" min="1" size="" value="<?php echo 'SESSION["qty"]'; ?>" />       
+                                                          
                                                     </td>
                                                        
                                                      <?php
                                                             if(isset($_POST['update_cart']))    // used for updating quantity in the cart table.
                                                                {
-                                                                 echo $qty=$_POST['qty'];
+                                                                 $qty=$_POST['qty'];
                                                                  	$update_qty="update cart set qty='$qty'"; 
                                                                  	$run_qty=mysqli_query($con,$update_qty);
                                                                     

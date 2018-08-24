@@ -30,6 +30,7 @@ $i=0;
 
 while($row_pro=mysqli_fetch_array($run_pro))
 {
+  $pro_id=$row_pro['product_id']; 	
   $pro_title=$row_pro['product_title'];
   $pro_image=$row_pro['product_image'];
   $pro_price=$row_pro['product_price'];
@@ -42,8 +43,8 @@ while($row_pro=mysqli_fetch_array($run_pro))
 	<td><br><?php echo $pro_title;  ?></td>
 	<td><br> <img src="product_images/<?php echo $pro_image; ?>" width="80" height="50" /> </td>
 	<td><br><?php echo $pro_price;  ?></td>
-	<td><br><a href="index.php?edit_pro">Edit</a></td>
-	<td><br><a href="delete_pro.php">Delete</a></td>
+	<td><br><a href="index.php?edit_pro=<?php echo $pro_id; ?>">Edit</a></td>
+	<td><br><a href="delete_pro.php?delete_pro=<?php echo $pro_id; ?> ">Delete</a></td>
 
 </tr>
 
