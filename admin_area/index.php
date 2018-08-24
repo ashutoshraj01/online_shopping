@@ -75,7 +75,11 @@
                {
                 include("view_brands.php");
                }
-
+                
+                if(isset($_GET['edit_brand']))
+               {
+                include("edit_brand.php");
+               }
 
      	?>
      </div>
