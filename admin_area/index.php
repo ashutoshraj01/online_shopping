@@ -51,6 +51,11 @@
                	include("edit_pro.php");
                }
 
+                if(isset($_GET['insert_cat']))
+               {
+                include("insert_cat.php");
+               }
+
 
      	?>
      </div>
