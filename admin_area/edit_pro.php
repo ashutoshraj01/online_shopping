@@ -1,3 +1,24 @@
+<?php
+
+if(!isset($_SESSION['user_email']))
+{
+
+echo "<script> window.open('login.php?not_admin=You are not a admin !','_self') </script>";
+
+
+}
+
+else
+{
+
+
+?>
+
+
+
+
+
+
 <!DOCTYPE>
 <?php
       include("includes/db.php");
@@ -221,7 +242,7 @@ $row_pro=mysqli_fetch_array($run_pro);
 
 
 
-
+<?php  }  ?>
 
 
 

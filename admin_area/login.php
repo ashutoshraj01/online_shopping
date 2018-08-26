@@ -17,6 +17,9 @@
 
 
 <div class="login">
+
+<h2 style="color: white; text-align: center; "><?php  echo @$_GET['logged_out'];   ?></h2>
+
 	<h1>Admin Login</h1>
     <form method="post" action="login.php">
     	<input type="text" name="email" placeholder="Enter Your Email" required="required" />

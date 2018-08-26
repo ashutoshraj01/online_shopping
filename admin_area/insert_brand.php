@@ -1,4 +1,18 @@
-  
+<?php
+
+if(!isset($_SESSION['user_email']))
+{
+
+echo "<script> window.open('login.php?not_admin=You are not a admin !','_self') </script>";
+
+
+}
+
+else
+{
+
+
+?>  
 
 <form action="" method="post" style="padding: 150px; text-align: center; color: red; background-color: white">    
 
@@ -34,3 +48,4 @@ if($run_brand)
 ?>
 
 
+<?php } ?>

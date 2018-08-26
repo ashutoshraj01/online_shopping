@@ -1,4 +1,19 @@
-   
+<?php
+
+if(!isset($_SESSION['user_email']))
+{
+
+echo "<script> window.open('login.php?not_admin=You are not a admin !','_self') </script>";
+
+
+}
+
+else
+{
+
+
+?>
+
 
    <table width="1078"  align="center"  bgcolor="skyblue">
    	
@@ -56,3 +71,4 @@ while($row_cat=mysqli_fetch_array($run_cat))
 
    </table>
    
+<?php  }  ?>
