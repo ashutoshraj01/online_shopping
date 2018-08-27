@@ -55,6 +55,11 @@ $total=0;
 <input type="hidden" name="amount" value="<?php echo "$total"; ?>">
 <input type="hidden" name="currency_code" value="usd">
 
+
+<input type="hidden" name="return" value="paypal_success.php">
+<input type="hidden" name="cancel_return" value="paypal_cancel.php">
+
+
 <!-- Display the payment button -->
 <input type="image" name="submit" border="0" src="paypal" alt="Paypal - The safer ,easier way to pay online" width="195" height="110">
 
