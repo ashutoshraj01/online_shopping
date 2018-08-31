@@ -6,3 +6,5 @@
     2. Linux = /opt/lampp/htdocs
 - Open your browser.
 - Type in URL = localhost/online_shopping
+
+## You are done..! ##
