@@ -7,4 +7,4 @@
 - Open your browser.
 - Type in URL = localhost/online_shopping
 
-## You are done..!, Now enjoy the project ## 
+## You are done..!  Now enjoy the project ## 
